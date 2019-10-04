@@ -4,6 +4,7 @@
 This script takes an excel document with front downforce, rear downforce, and drag for multiple ride heights and spits out an .aer file, readable by LTS.
 
 ![aero_map](maps.jpg)
+↑ an example of what your aero map should not look like...
 
 ---
 
@@ -24,9 +25,9 @@ This script takes an excel document with front downforce, rear downforce, and dr
 	 * line 5: f_in_path
 		 * Where the xlsx file is located and it's name
 	 * line 11: tabs
-		 * you probably don't need to fuck with this one
+		 * you probably don't need to mess with this one
 	 * line 12: table_ranges
-		 * depending on the number of values you have, you will probably have to fuck with these table ranges
+		 * depending on the number of values you have, you will probably have to mess with these table ranges
 	 * line 20: start_rh
 		 * The ride height for which you have the minimum value for
 	 * line 21: stop_rh
