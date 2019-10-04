@@ -3,7 +3,7 @@
 
 This script takes an excel document with front downforce, rear downforce, and drag for multiple ride heights and spits out an .aer file, readable by LTS.
 
-![aero_map](maps.jpg)
+![aero_map](bad_maps.jpg)
 ↑ an example of what your aero map should not look like...
 
 ---
