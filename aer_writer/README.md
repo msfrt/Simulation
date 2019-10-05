@@ -11,6 +11,7 @@ This script takes an excel document with front downforce, rear downforce, and dr
 ### Here's what you need to do:
 
  1. Edit the xlsx document to include your downforce and drag numbers
+	 * The downforce numbers should be positive for negative lift, and the drag numbers should also be positive.
 	 * In order for matlab to interpolate the data, you need to make sure that you cover all of your bases in terms or ride heights. This means that in addition to have your sim numbers, you need to include the x and y (ride height) maximums and minimums. For example if my maximum tested ride height is 2.5in, and my minimum was 0.5 inches, I would need to include downforce/drag numbers for the following ride hight combinations:
 		 * 0.5" front x 0.5" rear
 		 * 0.5" front x 2.5" rear

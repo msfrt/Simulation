@@ -1,8 +1,8 @@
-% output file path and file name
-f_out_path = 'C:\Users\nic\Desktop/output_test.aer';
+% output aer file path and file name
+f_out_path = 'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev2.05.aer';
 
 % input aero file, xslx format
-f_in_path = 'C:\Users\nic\Desktop/AeroMapMasterTable.xlsx';
+f_in_path =  'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev2.xlsx';
 
 % create a new aer file for the output in the desired path
 out_file = fopen(f_out_path, 'w');
