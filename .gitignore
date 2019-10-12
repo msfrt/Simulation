@@ -1,3 +1,5 @@
 .DS_Store
 *.ini
 ~$*.xls*
+track_creation/2019_MIS_endurance_manypoints.csv
+track_creation/temp.txt
