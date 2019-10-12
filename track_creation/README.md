@@ -22,3 +22,7 @@ This file outlines how to create a track to import into LTS. It's pretty straigh
 10. `reverse_track_bool` shouldn't need to be changed, however, if you drew your spline backwards or the map in LTS imported as backwards, this line is here to change the direction of the GPS output.
 11. Once all of the variables are updated, you can run the file to generate your DL1 file.
 12. In LTS under the track tab, you can import the csv file as a DL1 GPS file. From there, you may have to do a little bit of filtering. The LTS manual has more about this.
+
+#### Adjusting WUSS factor
+
+The WUSS factor is basically how well the driver can push the tire to the peak slip while undergoing a braking maneuver. For slaloms, you can use the WUSS spline to set the factor to 0, making the car model behave more accurately to how our drivers actually drive slaloms. Setting WUSS to 0 essentially means the driver is unable to push the tires to any slip, coasting through anything in that range. You don't have to worry about squaring the spline all that much, because it should solve fine, but raising the cutoff frequency should help. Also, ensure that the Wuss Factor method is set to longitudinal capability, as the solver is more stable that way.
