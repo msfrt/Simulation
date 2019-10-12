@@ -3,9 +3,12 @@
 
 This file outlines how to create a track to import into LTS. It's pretty straight forward, but you'll need to know what scripts to use and how to use them.
 
+![Example map](STT_Pittsburgh_Shootout.png)
+
 ---
 
 ### Here's what you need to do:
+
 
 1. Import your track map to NX. Menu → Insert → Datum/Point → Raster Image
 2. Scale your track map. There's really no right or wrong way to do this, and it usually depends on what markings are on the track map itself. However, you will need to make sure that every foot in real life is equal to one inch in NX. For example, if slaloms are 30 feet apart, you must make sure that they are 30 inches apart in your map.
