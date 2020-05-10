@@ -13,3 +13,6 @@ f_in = 'E:\Simulation_1920\processing\lts_2_darab\channels2.3.xlsx';
 f_out =    'C:\Users\nic\Desktop\big_long_boy.txt';
 ```
 6. Click `Run` in the MATLAB editor toolbar.
+7. The generated `.txt` file can then be loaded into WinDarab under `Import/Export -> Import from text file`. A window will pop up where you will paste the links to the txt files twice like so:
+![darab](darabinput.png)
+8. It will then do the conversion. Save the log file with a descriptive name (I typically save it in the same place at the LTS output and text files). You can now load it into Darab like any other log!
