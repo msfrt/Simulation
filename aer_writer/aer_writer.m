@@ -1,5 +1,5 @@
 % output aer file path and file name
-f_out_path = 'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev2.05.aer';
+f_out_path = 'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev3.05.aer';
 
 % input aero file, xslx format
 f_in_path =  'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev2.xlsx';
@@ -45,6 +45,9 @@ for i=1:length(tabs)
                 
     % intrapolate the given data to the resolution of the grid
     lbs_q = griddata(frh, rrh, lbs, frh_q, rrh_q);
+    
+    surf(interp2(lbs_q))
+    % surf(lbs_q)
     
     % print the spline name and the spine to the file
     fprintf(out_file, spline_name(i) + nl);
