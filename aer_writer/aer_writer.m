@@ -46,7 +46,7 @@ for i=1:length(tabs)
     % intrapolate the given data to the resolution of the grid
     lbs_q = griddata(frh, rrh, lbs, frh_q, rrh_q);
     
-    surf(interp2(lbs_q))
+    interp2(lbs_q)
     % surf(lbs_q)
     
     % print the spline name and the spine to the file
