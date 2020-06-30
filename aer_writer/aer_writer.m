@@ -1,15 +1,15 @@
 % output aer file path and file name
-f_out_path = 'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev3.05.aer';
+f_out_path = '\\filer1.egr.msu.edu\yonkers4\dotwindows\Desktop/aero_map_tables_SR20.aer';
 
 % input aero file, xslx format
-f_in_path =  'E:\Simulation1718\LTS\parameters\aero\aero_maps/sr19_rev2.xlsx';
+f_in_path =  '\\filer1.egr.msu.edu\yonkers4\dotwindows\Desktop/aero_map_tables_SR20.xlsx';
 
 % create a new aer file for the output in the desired path
 out_file = fopen(f_out_path, 'w');
 
 % the tabs to get the data from and the respective table ranges
 tabs =         ["front" ,"rear"  ,"drag"  ];
-table_ranges = ["A1:C20","A1:C20","A1:C20"];
+table_ranges = ["A1:C10","A1:C10","A1:C10"];
 
 % spline names - Lankes says don't touch these, they're probably good
 spline_name = ["!Front Downforce Spline,", "!Rear Downforce Spline",...
@@ -17,7 +17,7 @@ spline_name = ["!Front Downforce Spline,", "!Rear Downforce Spline",...
 spline      = ["SPLINE/11,", "SPLINE/12,", "SPLINE/13,"];
 
 % parameters for the exported aeromap size
-start_rh = 0.2; % in
+start_rh = 0.0; % in
 stop_rh  = 2.8; % in
 step_rh  = 0.1; % in
 
@@ -40,14 +40,24 @@ for i=1:length(tabs)
     
     % create a 2d grid of ride heights to store the intrapolated
     % and extrapolated data that we're about to calculate
-    [frh_q,rrh_q] = meshgrid(start_rh:step_rh:stop_rh,...
+    [frh_qt,rrh_qt] = meshgrid(start_rh:step_rh:stop_rh,...
                     start_rh:step_rh:stop_rh);
-                
-    % intrapolate the given data to the resolution of the grid
-    lbs_q = griddata(frh, rrh, lbs, frh_q, rrh_q);
+
+    % this second meshgrid is twice the resolution of the last
+    step2 = step_rh / 2.0;
+    [frh_q,rrh_q] = meshgrid(start_rh:step2:stop_rh,...
+                    start_rh:step2:stop_rh);
+         
+    % interpolate and extrapolate the data in the medium-meshed grid
+    F = scatteredInterpolant(frh, rrh, lbs, 'natural', 'linear');
+    vq1 = F(frh_qt, rrh_qt);
     
-    interp2(lbs_q)
-    % surf(lbs_q)
+    % interpolate the first mesh into the finer mesh, hopefully smoothing
+    % the boundary between interpolation and extrapolation
+    lbs_q = griddata(frh_qt, rrh_qt, vq1, frh_q, rrh_q, 'natural');
+    
+    %lbs_q = interp2(lbs_q);
+    %surf(lbs_q)
     
     % print the spline name and the spine to the file
     fprintf(out_file, spline_name(i) + nl);
